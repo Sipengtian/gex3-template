@@ -1,0 +1,196 @@
+/* Import custom font 'Luna' */
+@font-face {
+  font-family: 'Luna';
+  src: url('assets/fonts/Luna.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Full-screen fixed background image setup */
+.page-bg-img {
+  position: fixed; /* Fixed to the viewport, doesn't scroll with the page */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover; /* Ensures the image covers the screen without distortion */
+  z-index: -2; /* Placed at the bottom layer */
+}
+
+/* Global basic page styles */
+body {
+  padding: 40px 0;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #2b4f35; /* Fallback background color: Dark green */
+}
+
+/* Application main container z-index, ensuring it sits above the background */
+.app-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Main title styles (utilizes custom font and text shadow) */
+.main-title {
+  font-family: 'Luna', cursive;
+  font-size: 2.5rem; 
+  color: #e2f5e2; 
+  text-align: center;
+  margin-bottom: 25px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+  letter-spacing: 2px;
+}
+
+/* Accordion outer wrapper styles: adds rounded corners and drop shadow */
+.accordion-wrapper {
+  border-radius: 10px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.accordion {
+  position: relative;
+  z-index: 1;
+  background-color: transparent;
+}
+
+/* Bottom border separation for individual accordion items */
+.accordion-item {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+/* Accordion header button styles: removes default background/shadow, adds padding */
+.accordion-button {
+  position: relative;
+  overflow: hidden;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  padding: 40px 20px; 
+}
+
+/* Expanded state of the accordion button: adds inner shadow for depth */
+.accordion-button:not(.collapsed) {
+  box-shadow: inset 0 -3px 20px rgba(0,0,0,0.5) !important;
+}
+
+/* Background image layer inside the button */
+.btn-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0; /* Placed under the button text */
+}
+
+/* Button text styles */
+.btn-text {
+  position: relative;
+  z-index: 1; 
+  color: #ffda75; 
+  font-family: 'Luna', cursive; 
+  font-size: 1.8rem; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Adjusts the default Bootstrap accordion arrow (uses filter to change SVG color) */
+.accordion-button::after {
+  position: relative;
+  z-index: 1; 
+  filter: invert(80%) sepia(40%) saturate(1000%) hue-rotate(350deg) brightness(110%) contrast(100%);
+}
+
+/* Form content area background: semi-transparent dark green for text readability */
+.accordion-body {
+  background-color: rgba(20, 35, 25, 0.85); 
+  color: #fff;
+  padding: 25px;
+}
+
+/* Form label typography settings */
+.form-content label {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 0.95rem;
+  color: #e0e0e0;
+}
+
+/* Error message text styles (Red) */
+.error-text {
+  color: #ff6b6b;
+  font-size: 0.85em;
+  margin-top: 5px;
+  display: block;
+}
+
+/* Base styles for place selection cards */
+.place-card {
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  color: white;
+  border: 2px solid transparent;
+  cursor: pointer; /* Pointer cursor on hover, indicating clickability */
+  transition: transform 0.2s, border 0.2s; /* Smooth animation transitions */
+  height: 100%;
+}
+
+.place-card img {
+  height: 140px;
+  object-fit: cover;
+}
+
+/* Card hover effect: slight upward lift */
+.place-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Additional styles when a card is selected: highlighted border and background color */
+.place-card.selected {
+  border: 3px solid #ffda75; 
+  background-color: rgba(255, 218, 117, 0.2);
+}
+
+.card-title {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1rem;
+}
+
+/* "Generate Itinerary" button styles */
+.btn-generate {
+  background-color: #3f8e5f;
+  color: white;
+  font-family: 'Luna', cursive; 
+  font-size: 1.6rem; 
+  padding: 20px 40px;
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+}
+
+/* Button hover effect: darkens background and slight upward lift */
+.btn-generate:hover {
+  background-color: #2b6a44;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Summary information panel styles after successful submission */
+.summary-box {
+  margin-top: 30px;
+  padding: 25px;
+  background-color: rgba(255, 255, 255, 0.95); /* Nearly opaque white for clarity */
+  border-radius: 10px;
+  color: #333;
+  font-family: 'Segoe UI', sans-serif;
+  border-left: 8px solid #3f8e5f; /* Thick green border on the left as decoration */
+}

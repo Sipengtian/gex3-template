@@ -1,0 +1,1 @@
+I  am not good at vue ,like mounted() and async and await,so i asking ai to help me to write this part of code but after that I  try to understand this part of code and also other part of code, I add comments to code to help me to understand code.
